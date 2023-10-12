@@ -18,7 +18,13 @@ library(rgdal)
 install.packages("spatstat")
 library(spatstat)
 ###
+cp <- colorRampPalette( c("plum1", "cyan", "cornsilk", "burlywood","azure" ), 100
+plot(bei.extra, col=cp)
 
+plot(dmap)
+
+plot(bei.extra)
+                       ###
 bei
 plot(bei, cex = .95, pch =8, add=T)
 
