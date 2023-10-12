@@ -1,6 +1,0 @@
-cp <- colorRampPalette( c("plum1", "cyan", "cornsilk", "burlywood","azure" ), 100
-plot(bei.extra, col=cp)
-
-plot(dmap)
-
-plot(bei.extra)
