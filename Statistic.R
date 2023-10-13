@@ -15,7 +15,8 @@ str(stud.df)
 
 ###Change names of colums
 
-names(stud.df) <- c("age", "Height", "Country", "City" , "Roommate" , "Travel" , "KM" , "Skmow", "HS", "UP", "UR", "UR", "RC")
+names(stud.df) <- c("age", "Height", "Country", "City" , "Roommate" , "Travel" , "KM" , "Skmow", 
+                    "HS", "UP", "UR", "UR", "RC")
 
 str(stud.df)
 View(stud.df)
@@ -48,17 +49,75 @@ class(stud.df$km_travel)
 as.numeric(stud.df$KM)
 
 #create  a vector with posion  incorrecot postions
+####!!!!!
 
 idx <- (is.na(as.numeric(stud.df$KM))
 idx
-    
-    stud.df$KM[idx]
-stud.df$KM[stud.df$KM=="600 metro"] <- 0.6   
+View(stud.df)
+stud.df$KM[idx]
+stud.df$KM[stud.df$KM=="600 metri"] <- 0.6   
 
-stud.df$KM[idx[2]] <-  2
-
-view(stud.df$KM)
+stud.df$KM[idx[2]] <- 2
 View(stud.df$KM)
+stud.df$KM <- as.numeric(stud.df$KM)
+
+####!!!!!
+ 
+
+
+
+
+stud.df$Skmow
+as.factor(stud.df$Skmow)
+stud.df <- factor(stud.df$Skmow, levels = c(1,2,3,4,5)
+stud.df$
+
+  ###
+
+  
+stud.df$HS <- as.numeric(stud.df$HS)
+
+stud.df$HS
+View(stud.df)
+
+### USer r
+stud.df$UR
+class(stud.df$R)
+?NULL
+
+ifelse(stud.df$UR)
+
+write.csv()
+write.table(x = stud.df,file = "Studentidataclean")
+
+summary(stud.df)
+
+
+### 
+
+stud.df$Travel <-  as.factor(stud.df$Travel)
+stud.df$Travel
+sum(stud.df$Travel)
+
+
+table(stud.df$Travel)
+table(stud.df$Country)
+
+
+#most used way comming to class
+
+table(stud.df$Travel)
+
+which.max(table(stud.df$Travel))
+
+
+### What is the mean distance by those coming by train and walking
+
+mean(stud.df$KM[stud.df$Travel=="walk"])
+
+aggregate(x = stud.df$KM,
+          by=list(Way=stud.df$Travel)
+          FUN = mean)
 
 
 stud.df$KM <-  as.numeric(stud.df$KM)
