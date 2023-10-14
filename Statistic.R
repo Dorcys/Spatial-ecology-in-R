@@ -1,54 +1,80 @@
 ### import data
 ?read.table
 StudData <- read.table("StudDataset.csv", header = T, sep = ",")
+StudData
 class(StudData)
 View(StudData)
 
+### Delete the first column as it is not needed
+str(StudData)
+ncol(StudData)
+nrow(StudData)
 
-###
+sd <- StudData [ , -c(1, ncol(StudData))]
 
+str(sd)
+ncol(sd)
+nrow(sd)
+View(sd)
+###Change names of column
+##names(stud.df) <- c("Age", "Height", "Country", "City" , "Roommate" , "Travel" , "KM" , "Skmow", 
+##"HS", "UP", "UR", "UR", "RC")
 
-stud.df <- StudData [ , -c(1, ncol(StudData))]
-ncol(stud.df)
-nrow(stud.df)
-str(stud.df)
+names(sd) <- c('Age','Height','Country','City','Roomate','Way.of.treval','Distance',
+               'Stat.skill','Hours.in.stat','p.use.of.programing','UseR', 'CR','CEx')
 
-###Change names of colums
+str(sd)
+View(sd)
 
-names(stud.df) <- c("age", "Height", "Country", "City" , "Roommate" , "Travel" , "KM" , "Skmow", 
-                    "HS", "UP", "UR", "UR", "RC")
+### Change of height
+View(sd$Height)
+str(sd$Height)
+#Which - easy filter
+which(sd$Height<100)
 
-str(stud.df)
-View(stud.df)
+sd$Height[sd$Height < 100] <- 181
 
-which(stud.df$Height<100)
+### Change of Country
 
-stud.df$Height[ stud.df$Height < 100] <- 181
+class(sd$Country)
+str(sd$Country)
 
-### Country
-
-class(stud.df$Country)
-
-
-stud.df$Country[stud.df$Country == "ITALY"] <-  "Italy"
-stud.df$Country[stud.df$Country == "italy"] <-  "Italy"
-stud.df$Country[stud.df$Country == "Italy "] <-  "Italy"
-stud.df$Country[stud.df$Country == "SPAIN"] <-  "Spain"
-as.factor(stud.df$Country)
-
-### Transform intro a factor in the dataframe 
+sd$Country[sd$Country == "ITALY"] <-  "Italy"
+sd$Country[sd$Country == "italy"] <-  "Italy"
+sd$Country[sd$Country == "Italy "] <-  "Italy"
+sd$Country[sd$Country == "SPAIN"] <-  "Spain"
+#Change from character to factor to do more
+Country.factor <- as.factor(sd$Country)
+class(sd$Country)
+Country.factor
+levels(Country.factor)
+class(Country.factor)
+table(Country.factor)
+### Transform intro a factor in the data frame 
 stud.df$Country <-  as.factor(stud.df$Country)
+### Не обязательно так как я для этого сделал отдельную переменую 
+### Clean Roommate parameter 
+str(sd$Roomate)
+table(sd$Roomate)
+#Cleaning
+sd$Roomate [sd$Roomate > 10] <-  NA
+table(sd$Roomate)
 
-###Romemates
+###Distance clean
+class(sd$Distance)
+#At this point we see some of the numbers inscribed with letters, so whole data is "character"
+#We need change this because because the distance must be a number
+as.numeric(sd$Distance)
+#After that we lost our data (((((((((((((
+#R.I.P. Distance data
+#
+View(sd)
+#
+#We do not lose our data I lie sorry (
+#So lets actually clean our data 
+sd$Distance[sd$Distance == "600 metri"] <- 0.6
 
-stud.df$Roommate [ stud.df$Roommate > 10] <-  NA
-
-##km_travel
-
-class(stud.df$km_travel)
-as.numeric(stud.df$KM)
-
-#create  a vector with posion  incorrecot postions
+###Create a vector with position incorrect positions
 ####!!!!!
 
 idx <- (is.na(as.numeric(stud.df$KM))
