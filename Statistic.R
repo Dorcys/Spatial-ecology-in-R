@@ -75,17 +75,18 @@ View(sd)
 sd$Distance[sd$Distance == "600 metri"] <- 0.6
 
 ###Create a vector with position incorrect positions
-####!!!!!
+?is.na
+?as.numeric
+?as.character
+is.na(as.character(sd$Distance))
+is.na(as.numeric(sd$Distance))
 
-idx <- (is.na(as.numeric(stud.df$KM))
+idx <- is.na(as.numeric(sd$Distance))
 idx
-View(stud.df)
-stud.df$KM[idx]
-stud.df$KM[stud.df$KM=="600 metri"] <- 0.6   
 
-stud.df$KM[idx[2]] <- 2
-View(stud.df$KM)
-stud.df$KM <- as.numeric(stud.df$KM)
+sd$Distance[idx]
+sd[idx[2]] <- 2
+
 
 ####!!!!!
  
