@@ -169,3 +169,40 @@ plot(TP)
 points(PRES)
 plot(elevmap)
 points(PRES)
+#02.11.2023#
+library(imageRy)
+library(terra)
+im.list()
+
+setwd("C:/Users/1/Desktop/R")
+
+rast("A1.jpg") 
+#im.import
+
+Naja <-  rast("najafiraq.jpg")
+Naja2 <-  rast("najafiraq_oli_2023219_lrg.jpg")
+plot(Naja)
+plot(Naja2)
+im.plotRGB(Naja, r=1, g=2, b=3)
+Stacknaja <- c(Naja, Naja2)
+im.plotRGB(Stacknaja, 1,2,3)
+par(mfrow = c(2,1))
+dev.off
+Dnaja <- Naja[[1]] - Naja2[[1]]
+Najacol <- colorRampPalette(c("brown", "grey", "orange")) (100)
+plot(Dnaja, col = Najacol)
+dev.off()
+
+plot(Dnaja, col = Najacol)
+
+Fareast
+Fareast <- rast("Russia.TMOA2003205_lrg.jpg")
+plot(Fareast)
+im.plotRGB(Fareast, 1,2,3)
+im.plotRGB(Fareast, 3, 2,1)
+im.plotRGB(Fareast, 2,3,1)
+im.plotRGB(Fareast, 2,1,3) #Hightlit the fire spots 
+moto <-  rast("matogrosso_l5_1992219_lrg.jpg")
+plot(moto)
+moto
+install.packages("ncdf4")
