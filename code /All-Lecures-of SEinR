@@ -206,3 +206,29 @@ moto <-  rast("matogrosso_l5_1992219_lrg.jpg")
 plot(moto)
 moto
 install.packages("ncdf4")
+
+
+
+########################
+########################
+###Lecture 28.11.2023###
+########################
+########################
+install.packages("ncdf4")
+
+# https://land.copernicus.vgt.vito.be/PDF/portal/Application.html
+
+library(ncdf4)
+library(terra)
+setwd("C:/Users/1/Desktop/R/Images")
+soilm <- rast("soil.tiff")
+plot(soilm)
+
+soil2 <- rast("c_gls_SSM1km_202311250000_CEURO_S1CSAR_V1.2.1.nc")
+plot(soil2)
+
+#How cropo images 
+#Step 1 do varibale 
+ext <- c(20, 23, 55, 57)
+soil2c <- crop(soil2, ext)
+plot(soil2c)
