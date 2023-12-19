@@ -290,3 +290,27 @@ y2006 <-  c(45, 55)
 tab <-  data.frame(class, y1992, y2006)
 tab
 library(ggplot2)
+
+
+################################################################################################################################################################
+#19.12.2023#
+library(imageRy)
+library(terra)
+library(viridis)
+
+im.list()
+sent <-  im.import("sentinel.png")
+#1 = NIR 2 = R 3 = R
+im.plotRGB(sent, r=2, g=1, b=3 )
+ 
+nir <- sent[[1]]
+plot(nir)
+
+#moving window #focal
+sd3 <- focal(nir, matrix(1/9, 3,3), fun=sd)
+sd3
+plot(sd3)
+
+viridis <- colorRampPalette(viridis(7))(255)
+plot(sd3, col=viridis)
+                          
