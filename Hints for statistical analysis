@@ -4,3 +4,8 @@ n2 <- length(useRlastyear)
 p1 <- sum(df$use_R)/n1
 p2 <- sum(useRlastyear)/n2
 
+library(readr)
+Trees <- read_csv("Trees.csv")
+View(Trees)
+Trees$Specie[Trees$Specie == "ЛПМ"] <- "Tilia cordata"
+View(Trees)
