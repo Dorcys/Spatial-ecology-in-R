@@ -1,5 +1,9 @@
 #Sum
-# 01 Beginig ------- 
+#--
+# 01 Beginig 
+# 02 Population 
+#--
+#Begining --- 
 #First lessons with spatstat packages
 #package need for pattern analyssis
 install.packages("spatstat")
