@@ -1,0 +1,45 @@
+---
+title: "Text"
+author: "Dima"
+date: "2024-01-09"
+output: html_document
+---
+#My first mark down 
+
+Here you can add some text !
+
+So if you dont know what math is .....
+```{r, eval=F}
+2+3
+```
+```{r, eval=T}
+2+3
+```
+# imageRy is build in UNIBO
+
+```{r, eval=T}
+library(imageRy)
+```
+
+lets import some data
+
+```{r, eval=T}
+library(imageRy)
+im.list()
+im.import("matogrosso_ast_2006209_lrg.jpg")
+```
+
+So some people need RGB picture and we gonna use NIR insted of Red because its make more information
+```{r, eval=T}
+library(imageRy)
+im.list()
+moto2005 <- im.import("matogrosso_ast_2006209_lrg.jpg")
+im.plotRGB(moto2005,r=2,g=1,b=3)
+```
+
+Some NDVI 
+
+```{r, eval=T}
+dvi <-  moto2005[[1]] - moto2005[[2]]
+plot(dvi)
+```
