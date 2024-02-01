@@ -1,5 +1,5 @@
 #SEinR
-## Not a proffesor but a student 👨‍🎓
+## student 👨‍🎓
 Spatial ecology in R, 2023, UNIBO, Creatad by Ivanov Dmitrii 
 ## R
 + scripts pop
