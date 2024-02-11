@@ -7,7 +7,7 @@ Spatial ecology in R, 2023, UNIBO, Creatad by Ivanov Dmitrii
 **WARNING**
 Flase warning everything fine
 
-> **Note**
+**Note**
 > Scripts added by me
 
 **Note2**
