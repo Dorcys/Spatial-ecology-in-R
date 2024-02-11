@@ -1,13 +1,15 @@
-# Spatial ecology in R
-## Created by student 👨‍🎓
-I have code
-## The repository in R and contains:
-+ Cleaning
-+ Data processing or calculation
-+ Analysis
-  
+#SEinR
+## student 👨‍🎓
+Spatial ecology in R, 2023, UNIBO, Creatad by Ivanov Dmitrii 
+## R
++ scripts pop
++ scripts analysys 
 **WARNING**
-No warning everything fine 
-
+Flase warning everything fine
 > **Note**
-> Scripts also added by me
+> Scripts added by me
+**Note2**
+> Markdown
+> Latex
+> R
+
