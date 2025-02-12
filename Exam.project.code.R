@@ -37,4 +37,25 @@ plot(c_inB2020)
 plot(c_inB2024)
 plot(c_mB2020)
 plot(c_mB2024)
-#Use for cleaning plots dev.off()
+#Note: Use for cleaning plots dev.off()
+#Stacking images for further analysis
+stackedIN <- c(c_inB2020[[1:3]], c_inB2024[[1:3]])
+stackedM <- c(c_mB2020[[1:3]], c_mB2024[[1:3]])
+plot(stackedM)
+
+#Calculation of NDVI
+#Ploting RGB version of our images
+im.plotRGB(c_inB2020, r=3,g=2,b=1)
+im.plotRGB(c_inB2024, r=3,g=2,b=1)
+dev.off()
+#Plot the NIR band 
+plot(c_inB2020[[1]])
+#Calculate the Difference Vegetation Index (DVI)
+inDVI0 <- c_inB2020[[1]] - c_inB2020[[2]]
+inDVI4<- c_inB2024[[1]] - c_inB2024[[2]]
+par(mfrow = c (2,1))
+plot(inDVI0)
+plot(inDVI4)
+# Calculate the Normalized Difference Vegetation Index (NDVI)
+inNDVI0 <- (c_inB2020[[1]] - c_inB2020[[2]]/(c_inB2020[[1]] + c_inB2020[[2]]))
+plot(inNDVI0)
