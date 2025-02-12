@@ -24,10 +24,17 @@ mB2020 <- rast("M2020.jpg")
 mB2024 <- rast("M2024.jpg")
 
 #Cropping  pictures 
-#Original images from Copernicus observatory have NoData areas 
+#Original images from Copernicus observatory have No Data areas 
 crop_ext <- ext(100,775,100,775)
-c_inB2020 <- crop(inB2020, crop_ext)
-c_inB2024 <- crop(inB2024, crop_ext)
-c_mB2024 <- crop(mB2024, crop_ext)
-c_mB2020 <- crop(mB2020, crop_ext)
+c_inB2020 <- crop(inB2020,crop_ext)
+c_inB2024 <- crop(inB2024,crop_ext)
+c_mB2024 <- crop(mB2024,crop_ext)
+c_mB2020 <- crop(mB2020,crop_ext)
 
+#Plotting images in grid to see difference
+par(mfrow = c(2,2))
+plot(c_inB2020)
+plot(c_inB2024)
+plot(c_mB2020)
+plot(c_mB2024)
+#Use for cleaning plots dev.off()
