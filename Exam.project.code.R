@@ -64,6 +64,10 @@ inNDVI0 <- (c_inB2020[[1]] - c_inB2020[[2]]) / (c_inB2020[[1]] + c_inB2020[[2]])
 inNDVI4 <- (c_inB2024[[1]] - c_inB2024[[2]]) / (c_inB2024[[1]] + c_inB2024[[2]]) 
 mNDVI0 <- (c_mB2020[[1]] - c_mB2020[[2]]) / (c_mB2020[[1]] + c_mB2020[[2]])
 mNDVI4 <- (c_mB2024[[1]] - c_mB2024[[2]]) / (c_mB2024[[1]] + c_mB2024[[2]])
+summary(values(inNDVI0))
+summary(values(inNDVI4))
+summary(values(mNDVI0))
+summary(values(mNDVI4))
 
 #Change in DVI 
 DVI_diff_IN <- inDVI4 - inDVI0
@@ -131,6 +135,7 @@ legend("bottomright", legend=c("Decrease", "No Change", "Increase"),
 plot(NDVI_diff_M, col=viridis(100), main="NDVI Change - Modern land")
 legend("bottomright", legend=c("Decrease", "No Change", "Increase"),
        fill=viridis(3), bty="n")
+
 #Histogram for NDVI 
 hist(values(NDVI_diff_IN), breaks=50, col=viridis(100), main="NDVI Change - Indigenous Land", xlab="NDVI Change")
 hist(values(NDVI_diff_M), breaks=50, col=viridis(100), main="NDVI Change - Modern Land", xlab="NDVI Change")
@@ -140,6 +145,6 @@ plot(PCA_diff_IN, col=viridis(100), main="PCA Change - Indigenous Land")
 legend("bottomright", legend=c("Decrease", "No Change", "Increase"),
        fill=viridis(3), bty="n") 
 
-plot(PCA_diff_M, col=viridis(100), main="PCA Change - Indigenous Land")  
+plot(PCA_diff_M, col=viridis(100), main="PCA Change - Modern land")  
 legend("bottomright", legend=c("Decrease", "No Change", "Increase"),
        fill=viridis(3), bty="n")
