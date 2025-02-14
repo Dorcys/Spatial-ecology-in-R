@@ -141,10 +141,10 @@ hist(values(NDVI_diff_IN), breaks=50, col=viridis(100), main="NDVI Change - Indi
 hist(values(NDVI_diff_M), breaks=50, col=viridis(100), main="NDVI Change - Modern Land", xlab="NDVI Change")
 
 #PCA
-plot(PCA_diff_IN, col=viridis(100), main="PCA Change - Indigenous Land")  
+plot(pc1_diff_IN, col=viridis(100), main="PCA Change - Indigenous Land")  
 legend("bottomright", legend=c("Decrease", "No Change", "Increase"),
        fill=viridis(3), bty="n") 
 
-plot(PCA_diff_M, col=viridis(100), main="PCA Change - Modern land")  
+plot(pc1_diff_M, col=viridis(100), main="PCA Change - Modern land")  
 legend("bottomright", legend=c("Decrease", "No Change", "Increase"),
        fill=viridis(3), bty="n")
