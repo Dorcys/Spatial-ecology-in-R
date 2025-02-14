@@ -116,8 +116,8 @@ print(paste("Forest loss in Indigenous land:", round(area_lost_IN, 2), "hectares
 print(paste("Forest loss in Modern land:", round(area_lost_M, 2), "hectares"))
 #Create a binary forest loss classification map (1 = loss, 0 = no loss)
 forest_loss_map_IN <- pc1_diff_IN
-forest_loss_map_IN[pc1_diff_IN < 0] <- 1  # Loss
-forest_loss_map_IN[pc1_diff_IN >= 0] <- 0 # No Loss
+forest_loss_map_IN[pc1_diff_IN < 0] <- 1
+forest_loss_map_IN[pc1_diff_IN >= 0] <- 0
 forest_loss_map_M <- pc1_diff_M
 forest_loss_map_M[pc1_diff_M < 0] <- 1  
 forest_loss_map_M[pc1_diff_M >= 0] <- 0 
