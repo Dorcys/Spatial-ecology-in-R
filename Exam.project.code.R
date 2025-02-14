@@ -2,7 +2,7 @@
 #The goal of this project is compare difference between 
 #indigenous people land and modern day Brazil
 #We would compare changes in tree cover from 2020 to 2024\
-#Comparing NDVI values
+#Comparing DVI, NDVI and PCA values
 
 ###2.Preparing for analysis
 #Downloading packages
