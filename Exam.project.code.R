@@ -114,7 +114,13 @@ area_lost_IN <- sum(NDVI_diff_IN[] < 0, na.rm=TRUE) * res_m2 / 10000
 area_lost_M <- sum(NDVI_diff_M[] < 0, na.rm=TRUE) * res_m2 / 10000  
 print(paste("Forest loss in Indigenous land:", round(area_lost_IN, 2), "hectares"))
 print(paste("Forest loss in Modern land:", round(area_lost_M, 2), "hectares"))
-
+#Create a binary forest loss classification map (1 = loss, 0 = no loss)
+forest_loss_map_IN <- pc1_diff_IN
+forest_loss_map_IN[pc1_diff_IN < 0] <- 1  # Loss
+forest_loss_map_IN[pc1_diff_IN >= 0] <- 0 # No Loss
+forest_loss_map_M <- pc1_diff_M
+forest_loss_map_M[pc1_diff_M < 0] <- 1  
+forest_loss_map_M[pc1_diff_M >= 0] <- 0 
 
 ###4.Data visualization
 #This part of code dedicated for creating images for presentation 
@@ -148,3 +154,8 @@ legend("bottomright", legend=c("Decrease", "No Change", "Increase"),
 plot(pc1_diff_M, col=viridis(100), main="PCA Change - Modern land")  
 legend("bottomright", legend=c("Decrease", "No Change", "Increase"),
        fill=viridis(3), bty="n")
+#Plot the forest loss maps
+plot(forest_loss_map_IN, col=viridis(2), main="Forest Loss in Indigenous Land", legend=T)
+plot(forest_loss_map_M, col=viridis(2), main="Forest Loss in Modern Land", legend=FALSE)
+legend("bottomright", legend=c("No Loss", "Forest Loss"), fill=viridis(2), bty="n")
+
